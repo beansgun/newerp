@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="salesTable"
+        messagesPack="com.company.newerp.web.screens.sale">
+    <data readOnly="true">
+        <collection id="salesDc"
+                    class="com.company.newerp.entity.Sale"
+                    view="sale-view">
+            <loader id="salesDl">
+                <query>
+                    <![CDATA[select e from newerp_Sale e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="salesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="salesTable"
+                dataLoader="salesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="salesTable"
+                    width="100%"
+                    dataContainer="salesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+                <action id="profit"/>
+                <action id="addGoods"/>
+            </actions>
+            <columns>
+                <column id="goods" caption="&#21830;&#21697;"/>
+                <column id="number" caption="&#25968;&#37327;"/>
+                <column id="date" caption="&#26085;&#26399;"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="salesTable.create" caption="&#26032;&#24314;"/>
+                <button id="editBtn" action="salesTable.edit" caption="&#32534;&#36753;"/>
+                <button id="removeBtn" action="salesTable.remove" caption="&#21024;&#38500;"/>
+                <button id="salesTableProfitBtn" action="salesTable.profit" caption="&#25910;&#30410;"/>
+                <button id="salesTableAddGoodsBtn" action="salesTable.addGoods" caption="&#34917;&#36135;"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

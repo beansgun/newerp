@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.newerp.web.screens.goods">
+    <data>
+        <instance id="goodsDc"
+                  class="com.company.newerp.entity.Goods"
+                  view="goods-view">
+            <loader/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="goodsDc">
+            <column width="250px">
+                <textField id="nameField" property="name" caption="&#22995;&#21517;"/>
+                <pickerField id="supplierField" property="supplier" caption="&#20379;&#24212;&#21830;">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                        <action id="clear" type="picker_clear"/>
+                    </actions>
+                </pickerField>
+                <textField id="inPriceField" property="inPrice" caption="&#36827;&#36135;&#20215;"/>
+                <textField id="outPriceField" property="outPrice" caption="&#38144;&#21806;&#20215;"/>
+            </column>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose" caption="&#25552;&#20132;"/>
+            <button action="windowClose" caption="&#20851;&#38381;"/>
+        </hbox>
+    </layout>
+</window>

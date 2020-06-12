@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="purchasesTable"
+        messagesPack="com.company.newerp.web.screens.purchase">
+    <data readOnly="true">
+        <collection id="purchasesDc"
+                    class="com.company.newerp.entity.Purchase"
+                    view="purchase-view">
+            <loader id="purchasesDl">
+                <query>
+                    <![CDATA[select e from newerp_Purchase e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="purchasesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="purchasesTable"
+                dataLoader="purchasesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="purchasesTable"
+                    width="100%"
+                    dataContainer="purchasesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="goods" caption="&#21830;&#21697;"/>
+                <column id="number" caption="&#25968;&#37327;"/>
+                <column id="date" caption="&#26085;&#26399;"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="purchasesTable.create" caption="&#26032;&#24314;"/>
+                <button id="editBtn" action="purchasesTable.edit" caption="&#32534;&#36753;"/>
+                <button id="removeBtn" action="purchasesTable.remove" caption="&#21024;&#38500;"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

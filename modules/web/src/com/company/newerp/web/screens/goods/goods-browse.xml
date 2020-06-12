@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        xmlns:c="http://schemas.haulmont.com/cuba/screen/jpql_condition.xsd"
+        caption="msg://browseCaption"
+        focusComponent="goodsesTable"
+        messagesPack="com.company.newerp.web.screens.goods">
+    <data readOnly="true">
+        <collection id="goodsesDc"
+                    class="com.company.newerp.entity.Goods"
+                    view="goods-view">
+            <loader id="goodsesDl">
+                <query>
+                    <![CDATA[select e from newerp_Goods e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="goodsesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="goodsesTable"
+                dataLoader="goodsesDl">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="goodsesTable"
+                    width="100%"
+                    dataContainer="goodsesDc">
+            <actions>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
+            </actions>
+            <columns>
+                <column id="name" caption="&#22995;&#21517;"/>
+                <column id="supplier" caption="&#20379;&#24212;&#21830;"/>
+                <column id="inPrice" caption="&#36827;&#36135;&#20215;"/>
+                <column id="outPrice" caption="&#38144;&#21806;&#20215;"/>
+            </columns>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn" action="goodsesTable.create" caption="&#26032;&#24314;"/>
+                <button id="editBtn" action="goodsesTable.edit" caption="&#32534;&#36753;"/>
+                <button id="removeBtn" action="goodsesTable.remove" caption="&#21024;&#38500;"/>
+            </buttonsPanel>
+        </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
+    </layout>
+</window>

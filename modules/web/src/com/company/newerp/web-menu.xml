@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
+    <menu id="application-newerp" insertBefore="administration">
+        <item screen="newerp_Supplier.browse"/>
+        <item screen="newerp_Goods.browse"/>
+        <item screen="newerp_Stock.browse"/>
+        <item screen="newerp_Purchase.browse"/>
+        <item screen="newerp_Sale.browse"/>
+        <item screen="newerp_Car.browse"/>
+        <item screen="newerp_Driver.browse"/>
+    </menu>
+</menu-config>

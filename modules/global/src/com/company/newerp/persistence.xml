@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+    <persistence-unit name="newerp" transaction-type="RESOURCE_LOCAL">
+
+        <class>com.company.newerp.entity.Supplier</class>
+        <class>com.company.newerp.entity.Goods</class>
+        <class>com.company.newerp.entity.Stock</class>
+        <class>com.company.newerp.entity.Purchase</class>
+        <class>com.company.newerp.entity.Sale</class>
+        <class>com.company.newerp.entity.Car</class>
+        <class>com.company.newerp.entity.Driver</class>
+    </persistence-unit>
+</persistence>

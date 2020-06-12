@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.newerp.web.screens.driver">
+    <data>
+        <instance id="driverDc"
+                  class="com.company.newerp.entity.Driver"
+                  view="driver-with-car-view">
+            <loader/>
+            <collection id="carsDc" property="cars"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="driverDc">
+            <column width="250px">
+                <textField id="nameField" property="name"/>
+            </column>
+        </form>
+        <groupBox id="carsBox" caption="msg://com.company.newerp.entity/Driver.cars">
+            <table id="carsTable" dataContainer="carsDc" width="100%" height="200px">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="code"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="carsTable.add"/>
+                    <button action="carsTable.exclude"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
+    </layout>
+</window>

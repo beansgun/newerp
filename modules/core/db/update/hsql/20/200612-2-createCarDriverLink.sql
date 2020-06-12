@@ -1,0 +1,2 @@
+alter table NEWERP_CAR_DRIVER_LINK add constraint FK_CARDRI_ON_CAR foreign key (CAR_ID) references NEWERP_CAR(ID);
+alter table NEWERP_CAR_DRIVER_LINK add constraint FK_CARDRI_ON_DRIVER foreign key (DRIVER_ID) references NEWERP_DRIVER(ID);

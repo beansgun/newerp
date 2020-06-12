@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
+        caption="msg://editorCaption"
+        focusComponent="form"
+        messagesPack="com.company.newerp.web.screens.car">
+    <data>
+        <instance id="carDc"
+                  class="com.company.newerp.entity.Car"
+                  view="car-with-driver-view">
+            <loader/>
+            <collection id="driverDc" property="driver"/>
+        </instance>
+    </data>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="carDc">
+            <column width="250px">
+                <textField id="volumeField" property="volume" caption="&#23481;&#37327;"/>
+                <checkBox id="statusField" property="status" caption="&#21487;&#29992;"/>
+                <textField id="codeField" property="code" caption="&#32534;&#30721;"/>
+            </column>
+        </form>
+        <groupBox id="driverBox" caption="msg://com.company.newerp.entity/Car.driver">
+            <table id="driverTable" dataContainer="driverDc" width="100%" height="200px" caption="&#21496;&#26426;">
+                <actions>
+                    <action id="add" type="add"/>
+                    <action id="exclude" type="exclude"/>
+                </actions>
+                <columns>
+                    <column id="name" caption="&#22995;&#21517;"/>
+                </columns>
+                <buttonsPanel>
+                    <button action="driverTable.add" caption="&#28155;&#21152;"/>
+                    <button action="driverTable.exclude" caption="&#31227;&#38500;"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose" caption="&#25552;&#20132;"/>
+            <button action="windowClose" caption="&#20851;&#38381;"/>
+        </hbox>
+    </layout>
+</window>

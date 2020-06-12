@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+
+    <view entity="newerp_Goods" name="goods-view" extends="_local">
+        <property name="supplier" view="_minimal"/>
+    </view>
+    <view entity="newerp_Purchase" name="purchase-view" extends="_local">
+        <property name="goods" view="_minimal"/>
+    </view>
+    <view entity="newerp_Sale" name="sale-view" extends="_local">
+        <property name="goods" view="_minimal"/>
+    </view>
+    <view entity="newerp_Stock" name="stock-view_1" extends="_local">
+        <property name="goods" view="_minimal"/>
+    </view>
+    <view entity="newerp_Car" name="car-with-driver-view" extends="_local">
+        <property name="driver" view="_minimal"/>
+    </view>
+    <view entity="newerp_Driver" name="driver-with-car-view" extends="_local">
+        <property name="cars" view="_minimal">
+            <property name="code"/>
+        </property>
+    </view>
+</views>
